@@ -989,6 +989,15 @@ function field_change_enable(value)
             onMem2Campos()
         }
     }
+
+function Campos2Mem(){
+    var confirmar = alert("Pasar de campos a memoria?");
+    if(confirmar !=nuel){
+        onCampos2Mem()
+    }
+}
+
+
 </script>
 <input type="hidden" name="enable" value="1"><input type="checkbox" class="checkbox" name="field_enable" onchange="field_change_enable(this.checked?1:0)" value="1" checked="checked"></td></tr><tr><td style="padding-top: 4px" width="160" valign="top">Estado</td><td>DESACTUALIZADO </td></tr><tr><td style="padding-top: 4px" width="160" valign="top">Fecha estado</td><td>20/10/2021 10:46 hs.</td></tr><tr><td style="padding-top: 4px" width="160" valign="top">Memoria</td><td><textarea name="mem_m3up" id="mem_m3up" style="width: 580px; text-transform: uppercase" maxlength="256"  onpaste="PromptDemo()"; cols="256">F8B48000A0C3800050D2800000F08000F8FF8000A10E8000511D8000012C800000008040F8B4804000F080400000004000000040000000400000004000000040F8018080E0028080C8038080A004808078058080500680802807808000088080F8008000A814800058328000005A800058788000A88C8000F8A0800000B48000</textarea><script type="text/javascript">new REC_Field('mem_m3up', 'mem_m3up', 0, [ ])</script> 128 bytes</td></tr><tr><td colspan="2"><p>Tipo: <em><strong>M3UP </strong></em></p><p>Estado autopolling: <em><strong>ON. Polling con tiempo real (horario fijo/minutos desde las 12h)</strong></em></p><script language="javascript">
     
@@ -1211,7 +1220,7 @@ function field_change_enable(value)
         <option value="01">T desde las 12:00</option>
         <option value="10">T en % respecto día anterior</option>
     </select>)</td>
-    <td><input type="button" onclick="changeP1();" value="Actualizar"> <label id="Error1" style="color: red"></label>
+    <td><input type="button" onclick="changeP1();Campos2Mem()" value="Actualizar"> <label id="Error1" style="color: red"></label>
 </td>
 </tr>
 <tr>
@@ -1235,7 +1244,7 @@ function field_change_enable(value)
                 for (I = 1; I <= 8; I++) {
                     document.writeln("<tr align=center>");
                     document.writeln("<td>"+I+" <input type=\"checkbox\" checked id=\"AP1C"+I+"\"></td>");
-                    document.writeln("<td><input type=\"text\" onpaste = \"alerta()\" value=\"0\" id=\"HP1C"+I+"\" maxlength=3 size=3></td>");
+                    document.writeln("<td><input type=\"text\" value=\"0\" id=\"HP1C"+I+"\" maxlength=3 size=3></td>");
                     document.writeln("<td><input type=\"text\" value=\"0\" id=\"MP1C"+I+"\" maxlength=2 size=2></td>");
                     document.writeln("<td><select name=\"dimado\" id=\"DP1C"+I+"\"><option value =\"0\">0%</option><option value =\"1\">1%</option><option value =\"2\">2%</option><option value =\"3\">3%</option><option value =\"4\">4%</option><option value =\"5\">5%</option><option value =\"6\">6%</option><option value =\"7\">7%</option><option value =\"8\">8%</option><option value =\"9\">9%</option><option value=\"10\">10%</option><option value=\"11\">11%</option><option value=\"12\">12%</option><option value=\"13\">13%</option><option value=\"14\">14%</option><option value = \"15\">15%</option><option value=\"16\">16%</option><option value=\"17\">17%</option><option value=\"18\">18%</option><option value=\"19\">19%</option><option value = \"20\">20%</option><option value=\"21\">21%</option><option value=\"10\">10%</option><option value = \"22\">22%</option><option value = \"23\">23%</option><option value = \"24\">24%</option><option value = \"25\">25%</option><option value = \"26\">26%</option><option value = \"27\">27%</option><option value = \"28\">28%</option><option value = \"29\">29%</option><option value = \"30\">30%</option><option value = \"31\">100%</option></select></td>");
                     document.writeln("<td><select name=\"dimadoEntrada\" id=\"IP1C" + I + "\" ><option value =\"0\">0%</option><option value =\"1\">1%</option><option value =\"2\">2%</option><option value =\"3\">3%</option><option value =\"4\">4%</option><option value =\"5\">5%</option><option value =\"6\">6%</option><option value =\"7\">7%</option><option value =\"8\">8%</option><option value =\"9\">9%</option><option value=\"10\">10%</option><option value=\"11\">11%</option><option value=\"12\">12%</option><option value=\"13\">13%</option><option value=\"14\">14%</option><option value = \"15\">15%</option><option value=\"16\">16%</option><option value=\"17\">17%</option><option value=\"18\">18%</option><option value=\"19\">19%</option><option value = \"20\">20%</option><option value=\"21\">21%</option><option value=\"10\">10%</option><option value = \"22\">22%</option><option value = \"23\">23%</option><option value = \"24\">24%</option><option value = \"25\">25%</option><option value = \"26\">26%</option><option value = \"27\">27%</option><option value = \"28\">28%</option><option value = \"29\">29%</option><option value = \"30\">30%</option><option value = \"31\">100%</option></select></td>");
@@ -1258,12 +1267,33 @@ function field_change_enable(value)
                                 var new_element = document.createElement('td');
                                 new_element.innerHTML = "<select name=\"Hrs\" id=\"HP1C" + I + "\"><option value =\"0\">0</option><option value =\"1\">1</option><option value =\"2\">2</option><option value =\"3\">3</option><option value =\"4\">4</option><option value =\"5\">5</option><option value =\"6\">6</option><option value =\"7\">7</option><option value =\"8\">8</option><option value =\"9\">9</option><option value =\"10\">10</option><option value =\"11\">11</option><option value =\"12\">12</option><option value =\"13\">13</option><option value =\"14\">14</option><option value =\"15\">15</option><option value =\"16\">16</option><option value =\"17\">17</option><option value =\"18\">18</option><option value =\"19\">19</option><option value =\"20\">20</option><option value =\"21\">21</option><option value =\"22\">22</option><option value =\"23\">23</option>";
                                 hp1c.replaceWith(new_element)
+      
+                            }else if(disa = this.value === "10"){
+                                        console.log("ADSZF");
+                                        const Hp12 = document.querySelectorAll("[id^=HP1C]")
+                                        document.getElementById("TipoPatron1").addEventListener("change", function () {
+                                        const disa = this.value === "10";
+                                        Hp12.forEach((hp1c, I) => {
+                                            if (disa) {
+                                                console.log("ADSZF");
+                                                var new_element = document.createElement('td');
+                                                new_element.innerHTML = "<td><input type=\"text\" value=\"0\" id=\"HP1C"+I+"\" maxlength=2 size=2 disabled></td>";
+                                                hp1c.replaceWith(new_element)
+                                                const hpcs1 = document.querySelectorAll("[id^=HP1C]")
+                                                document.getElementById("TipoPatron1").addEventListener("change", function () {
+                                                const dis = this.value === "10";
+                                                hpcs1.forEach(hp1c => hp1c.disabled = dis)
 
-                                const hrs1 = document.querySelectorAll("[id^=HP1C]")
-                                document.getElementById("TipoPatron1").addEventListener("change", function () {
-                                    const dis = this.value === "10";
-                                    hrs1.forEach(hp1c => hp1c.disabled = dis)
+                                                console.log("ADSZF");
+                                                var new_element = document.createElement('td');
+                                                new_element.innerHTML = "<select name=\"Hrs\" id=\"MP1C" + I + "\"><option value =\"0\">0</option><option value =\"1\">1</option><option value =\"2\">2</option><option value =\"3\">3</option><option value =\"4\">4</option><option value =\"5\">5</option><option value =\"6\">6</option><option value =\"7\">7</option><option value =\"8\">8</option><option value =\"9\">9</option><option value =\"10\">10</option><option value =\"11\">11</option><option value =\"12\">12</option><option value =\"13\">13</option><option value =\"14\">14</option><option value =\"15\">15</option><option value =\"16\">16</option><option value =\"17\">17</option><option value =\"18\">18</option><option value =\"19\">19</option><option value =\"20\">20</option><option value =\"21\">21</option><option value =\"22\">22</option><option value =\"23\">23</option>";
+                                                mp1c.replaceWith(new_element)
+
+                                        })
+                                    }
                                 })
+                            })
+
                             }
                         })
                     })
@@ -1290,12 +1320,7 @@ function field_change_enable(value)
                                         var new_element = document.createElement('td');
                                         new_element.innerHTML = "<select name=\"Hrs\" id=\"HP1C" + I + "\"><option value =\"0\">0</option><option value =\"1\">1</option><option value =\"2\">2</option><option value =\"3\">3</option><option value =\"4\">4</option><option value =\"5\">5</option><option value =\"6\">6</option><option value =\"7\">7</option><option value =\"8\">8</option><option value =\"9\">9</option><option value =\"10\">10</option><option value =\"11\">11</option><option value =\"12\">12</option><option value =\"13\">13</option><option value =\"14\">14</option><option value =\"15\">15</option><option value =\"16\">16</option><option value =\"17\">17</option><option value =\"18\">18</option><option value =\"19\">19</option><option value =\"20\">20</option><option value =\"21\">21</option><option value =\"22\">22</option><option value =\"23\">23</option>";
                                         hp1c.replaceWith(new_element)
-
-                                        const hrs2 = document.querySelectorAll("[id^=HP1C]")
-                                        document.getElementById("TipoPatron1").addEventListener("change", function () {
-                                            const dis = this.value === "10";
-                                            hrs2.forEach(hp1c => hp1c.disabled = dis)
-                                        })
+                                    
                                     }
                                 })
                             })
@@ -1314,6 +1339,7 @@ function field_change_enable(value)
                             })
                         })
 
+                        
                    
 
 
@@ -1331,7 +1357,8 @@ function field_change_enable(value)
           <option value="01" selected="selected">T desde las 12:00</option>
           <option value="10">T en % respecto día anterior</option>
         </select>)</td>
-      <td><input type="button" onclick="changeP2();" value="Actualizar"> <label id="Error2" style="color: red"></label></td>
+      <td><input type="button" onclick="changeP2();Campos2Mem()" value="Actualizar"> <label id="Error2" style="color: red"></label></td>
+      
     </tr>
     <tr>
       <td>
