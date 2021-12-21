@@ -8,3 +8,5 @@ Entrega2 :: Cuando se selecciona "T en % respecto día anterior" se deshabilita 
 Entrega3 :: Cuando se cambia de "T en % respecto día anterior" a "T desde el encendido" o "T desde las 12:00" los inputs pasan a ser selects, tambíen dimado entrada se convierte en selects en 3 las opciones e implementación de pasar de campos a memoria. 
 
 Entrega4 :: Correción de bugs, implementación de campos a memoria y de memoria a campos. Empieza implementación para una nueva grafica
+
+Entrega5 :: Selects de horas, minutos, dimado y dimado entrada completados, tambien activar y desactivar horas está listo. Grafica lista, pero no implementada, esperando aprobación para la implementación
